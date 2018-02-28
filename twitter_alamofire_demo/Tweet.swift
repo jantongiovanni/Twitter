@@ -31,9 +31,11 @@ class Tweet {
         retweetCount = dictionary["retweet_count"] as! Int
         retweeted = dictionary["retweeted"] as! Bool
         
+        //initialize user
         let user = dictionary["user"] as! [String: Any]
         self.user = User(dictionary: user)
         
+        //Format createAt date String
         let createdAtOriginalString = dictionary["created_at"] as! String
         let formatter = DateFormatter()
         // Configure the input format to parse the date string
