@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AFNetworking
 
 class TweetCell: UITableViewCell {
     
@@ -27,6 +28,13 @@ class TweetCell: UITableViewCell {
             tweetCreatedAtLabel.text = tweet.createdAtString
             tweetRetweetedLabel.text = String(tweet.retweetCount)
             tweetFavoritedLabel.text = String(tweet.favoriteCount ?? 0)
+            tweetProfileImageView.image = nil
+            
+            let profileImage = NSURL(string: tweet.user.profileImage!)
+            tweetProfileImageView.setImageWith(profileImage! as URL)
+            
+            
+            
         }
     }
     
