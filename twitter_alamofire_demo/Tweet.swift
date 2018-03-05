@@ -11,9 +11,9 @@ import Foundation
 class Tweet {
     
     // MARK: Properties
-    var id: Int // For favoriting, retweeting & replying
+    var id: String? // For favoriting, retweeting & replying
     var text: String // Text content of tweet
-    var favoriteCount: Int? // Update favorite count label
+    var favoriteCount: Int // Update favorite count label
     var favorited: Bool? // Configure favorite button
     var retweetCount: Int // Update favorite count label
     var retweeted: Bool // Configure retweet button
@@ -22,11 +22,11 @@ class Tweet {
     
     // MARK: - Create initializer with dictionary
     init(dictionary: [String: Any]) {
-        id = dictionary["id"] as! Int
+        id = dictionary["id"] as? String
         print("id is \(id) from \(dictionary["id"])")
         
         text = dictionary["text"] as! String
-        favoriteCount = dictionary["favorite_count"] as? Int
+        favoriteCount = (dictionary["favorite_count"] as? Int)!
         favorited = dictionary["favorited"] as? Bool
         retweetCount = dictionary["retweet_count"] as! Int
         retweeted = dictionary["retweeted"] as! Bool
@@ -50,5 +50,12 @@ class Tweet {
         
         
     }
+    
+    static func tweets(with array: [[String: Any]]) -> [Tweet] {
+        return array.flatMap({ (dictionary) -> Tweet in
+            Tweet(dictionary: dictionary)
+        })
+    }
+    
 }
 

@@ -18,6 +18,7 @@ class TweetCell: UITableViewCell {
     @IBOutlet weak var tweetCreatedAtLabel: UILabel!
     @IBOutlet weak var tweetRetweetedLabel: UILabel!
     @IBOutlet weak var tweetFavoritedLabel: UILabel!
+    @IBOutlet weak var tweetFavoritedButton: UIButton!
     
     
     var tweet: Tweet! {
@@ -27,7 +28,7 @@ class TweetCell: UITableViewCell {
             tweetScreenNameLabel.text = tweet.user.screenName
             tweetCreatedAtLabel.text = tweet.createdAtString
             tweetRetweetedLabel.text = String(tweet.retweetCount)
-            tweetFavoritedLabel.text = String(tweet.favoriteCount ?? 0)
+            tweetFavoritedLabel.text = String(tweet.favoriteCount )
             tweetProfileImageView.image = nil
             
             let profileImage = NSURL(string: tweet.user.profileImage!)
@@ -42,6 +43,23 @@ class TweetCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
     }
+    
+    @IBAction func didTapFavorite(_ sender: Any) {
+    tweetFavoritedButton.setImage(#imageLiteral(resourceName: "favor-icon-red"), for: .normal)
+        tweet.favorited = true
+        tweet.favoriteCount += 1
+        
+        APIManager.shared.favoriteTweet(with: tweet) { (tweet: Tweet?, error: Error?) in
+            if let  error = error {
+                print("Error favoriting tweet: \(error.localizedDescription)")
+            } else if let tweet = tweet {
+                print("Successfully favorited the following Tweet: \n\(tweet.text)")
+            }
+        }
+    
+    }
+    
+    
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)

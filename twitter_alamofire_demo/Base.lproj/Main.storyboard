@@ -70,7 +70,7 @@
                                         <rect key="frame" x="0.0" y="92" width="414" height="103"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="U1g-kw-izy" id="zd2-Er-659">
-                                            <frame key="frameInset" width="414" height="102.5"/>
+                                            <frame key="frameInset" width="414" height="102.66666666666667"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="I love tweeting!" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="epC-Fs-Q5Z">
@@ -115,6 +115,13 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2KD-Ln-wbG">
+                                                    <frame key="frameInset" minX="112" minY="69" width="30" height="30"/>
+                                                    <state key="normal" image="favor-icon"/>
+                                                    <connections>
+                                                        <action selector="didTapFavorite:" destination="U1g-kw-izy" eventType="touchUpInside" id="zZS-E8-nBb"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="aQm-U9-ZdN" firstAttribute="leading" secondItem="VsI-BS-Fz8" secondAttribute="trailing" constant="32" id="0aZ-ib-pi1" userLabel="Tweet Favorited Label.leading = Tweet Retweeted Label.trailing + 50"/>
@@ -122,21 +129,24 @@
                                                 <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="aQm-U9-ZdN" secondAttribute="bottom" constant="8" id="7us-b1-z0R"/>
                                                 <constraint firstItem="mvj-z5-SZI" firstAttribute="top" secondItem="zd2-Er-659" secondAttribute="top" constant="8" id="83g-ef-pgi"/>
                                                 <constraint firstItem="epC-Fs-Q5Z" firstAttribute="top" secondItem="mvj-z5-SZI" secondAttribute="bottom" constant="4" id="H1a-AR-71F"/>
-                                                <constraint firstItem="VsI-BS-Fz8" firstAttribute="leading" secondItem="zd2-Er-659" secondAttribute="leading" constant="150" id="M1U-vz-FGO"/>
                                                 <constraint firstItem="CIU-sd-cwh" firstAttribute="leading" secondItem="mvj-z5-SZI" secondAttribute="trailing" constant="4" id="Obt-g3-Wj8"/>
                                                 <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="VsI-BS-Fz8" secondAttribute="bottom" constant="8" id="P0y-cq-lqj"/>
                                                 <constraint firstItem="S7C-OT-fKy" firstAttribute="leading" secondItem="zd2-Er-659" secondAttribute="leadingMargin" id="V7e-4Q-77w"/>
+                                                <constraint firstItem="VsI-BS-Fz8" firstAttribute="leading" secondItem="2KD-Ln-wbG" secondAttribute="trailing" constant="4" id="XEJ-H3-sbg"/>
                                                 <constraint firstItem="mvj-z5-SZI" firstAttribute="leading" secondItem="S7C-OT-fKy" secondAttribute="trailing" constant="8" id="Zuv-Ea-1te"/>
                                                 <constraint firstItem="VsI-BS-Fz8" firstAttribute="top" secondItem="epC-Fs-Q5Z" secondAttribute="bottom" constant="4" id="a4z-W4-IOr"/>
                                                 <constraint firstItem="epC-Fs-Q5Z" firstAttribute="top" secondItem="xYg-qz-BeJ" secondAttribute="bottom" constant="4" id="aex-Kw-PLJ"/>
+                                                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="2KD-Ln-wbG" secondAttribute="bottom" constant="4" id="bXf-gJ-twD"/>
                                                 <constraint firstItem="epC-Fs-Q5Z" firstAttribute="leading" secondItem="S7C-OT-fKy" secondAttribute="trailing" constant="8" id="msF-7h-1Dr"/>
                                                 <constraint firstItem="epC-Fs-Q5Z" firstAttribute="top" secondItem="CIU-sd-cwh" secondAttribute="bottom" constant="4" id="ok0-pe-Ja2"/>
                                                 <constraint firstItem="xYg-qz-BeJ" firstAttribute="leading" secondItem="CIU-sd-cwh" secondAttribute="trailing" constant="4" id="rSW-7c-USW"/>
                                                 <constraint firstAttribute="trailing" secondItem="epC-Fs-Q5Z" secondAttribute="trailing" constant="8" id="t3O-Hf-fvX"/>
+                                                <constraint firstItem="2KD-Ln-wbG" firstAttribute="leading" secondItem="zd2-Er-659" secondAttribute="leading" constant="112" id="uAe-KS-hcv"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="tweetCreatedAtLabel" destination="xYg-qz-BeJ" id="YZl-xX-3or"/>
+                                            <outlet property="tweetFavoritedButton" destination="2KD-Ln-wbG" id="Xdr-Cc-FIb"/>
                                             <outlet property="tweetFavoritedLabel" destination="aQm-U9-ZdN" id="3aw-VY-DTB"/>
                                             <outlet property="tweetProfileImageView" destination="S7C-OT-fKy" id="QXc-rc-3Jw"/>
                                             <outlet property="tweetRetweetedLabel" destination="VsI-BS-Fz8" id="uPQ-KP-KCg"/>
@@ -186,5 +196,6 @@
     </scenes>
     <resources>
         <image name="TwitterLogoBlue" width="133" height="133"/>
+        <image name="favor-icon" width="30" height="30"/>
     </resources>
 </document>
