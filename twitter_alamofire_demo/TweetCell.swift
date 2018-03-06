@@ -8,10 +8,11 @@
 
 import UIKit
 import AFNetworking
+import ActiveLabel
 
 class TweetCell: UITableViewCell {
     
-    @IBOutlet weak var tweetTextLabel: UILabel!
+    @IBOutlet weak var tweetTextLabel: ActiveLabel!
     @IBOutlet weak var tweetProfileImageView: UIImageView!
     @IBOutlet weak var tweetUsernameLabel: UILabel!
     @IBOutlet weak var tweetScreenNameLabel: UILabel!
@@ -95,6 +96,12 @@ class TweetCell: UITableViewCell {
         tweetRetweetedLabel.text = String(tweet.retweetCount)
         tweetFavoritedLabel.text = String(tweet.favoriteCount )
         tweetProfileImageView.image = nil
+        
+        tweetTextLabel.enabledTypes = [.mention, .hashtag, .url]
+        tweetTextLabel.handleURLTap { (url) in
+            UIApplication.shared.openURL(url)
+        }
+        
         
         if(tweet.favorited)!{
             tweetFavoritedButton.setImage(#imageLiteral(resourceName: "favor-icon-red"), for: .normal)
