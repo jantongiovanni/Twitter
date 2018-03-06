@@ -21,27 +21,14 @@ class TweetCell: UITableViewCell {
     @IBOutlet weak var tweetFavoritedButton: UIButton!
     @IBOutlet weak var tweetRetweetButton: UIButton!
     
-    
     var tweet: Tweet! {
         didSet {
-//            tweetTextLabel.text = tweet.text
-//            tweetUsernameLabel.text = tweet.user.name
-//            tweetScreenNameLabel.text = tweet.user.screenName
-//            tweetCreatedAtLabel.text = tweet.createdAtString
-//            tweetRetweetedLabel.text = String(tweet.retweetCount)
-//            tweetFavoritedLabel.text = String(tweet.favoriteCount )
-//            tweetProfileImageView.image = nil
-//            
-//            let profileImage = NSURL(string: tweet.user.profileImage!)
-//            tweetProfileImageView.setImageWith(profileImage! as URL)
-//            
-refreshData()
-            
+            refreshData()
         }
     }
     
-    
     @IBAction func didTapFavorite(_ sender: Any) {
+        if(tweet.favorited == false){
         tweet.favorited = true
         tweet.favoriteCount += 1
         refreshData()
@@ -52,10 +39,25 @@ refreshData()
                 print("Successfully favorited the following Tweet: \n\(tweet.text)")
             }
         }
+        }
+        else{
+        tweet.favorited = false
+            tweet.favoriteCount -= 1
+            refreshData()
+            APIManager.shared.unfavorite(with: tweet) { (tweet: Tweet?, error: Error?) in
+                if let  error = error {
+                    print("Error unfavoriting tweet: \(error.localizedDescription)")
+                } else if let tweet = tweet {
+                    print("Successfully unfavorited the following Tweet: \n\(tweet.text)")
+                }
+        
+            }
+        }
         
     }
     
     @IBAction func didTapRetweet(_ sender: Any) {
+        if(tweet.retweeted == false){
         tweet.retweeted = true
         tweet.retweetCount += 1
         refreshData()
@@ -66,7 +68,20 @@ refreshData()
                 print("Successfully Retweeted the following Tweet: \n\(tweet.text)")
             }
         }
+        }
+        else{
+            tweet.retweeted = false
+            tweet.retweetCount -= 1
+            refreshData()
+            APIManager.shared.untweet(with: tweet) { (tweet: Tweet?, error: Error?) in
+                if let  error = error {
+                    print("Error Unretweeting tweet: \(error.localizedDescription)")
+                } else if let tweet = tweet {
+                    print("Successfully Unretweeted the following Tweet: \n\(tweet.text)")
+                }
+            }
         
+        }
         
     }
     
@@ -84,8 +99,14 @@ refreshData()
         if(tweet.favorited)!{
             tweetFavoritedButton.setImage(#imageLiteral(resourceName: "favor-icon-red"), for: .normal)
         }
+        if(tweet.favorited == false){
+            tweetFavoritedButton.setImage(#imageLiteral(resourceName: "favor-icon"), for: .normal)
+        }
         if(tweet.retweeted){
             tweetRetweetButton.setImage(#imageLiteral(resourceName: "retweet-icon-green"), for: .normal)
+        }
+        if(tweet.retweeted==false){
+            tweetRetweetButton.setImage(#imageLiteral(resourceName: "retweet-icon"), for: .normal)
         }
         
         let profileImage = NSURL(string: tweet.user.profileImage!)

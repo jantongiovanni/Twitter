@@ -30,7 +30,7 @@ class Tweet {
         text = dictionary["text"] as! String
         favoriteCount = (dictionary["favorite_count"] as? Int)!
         favorited = dictionary["favorited"] as? Bool
-        retweetCount = dictionary["retweet_count"] as! Int
+        retweetCount = (dictionary["retweet_count"] as? Int)!
         retweeted = dictionary["retweeted"] as! Bool
         
         //initialize user
