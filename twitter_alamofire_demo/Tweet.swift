@@ -11,7 +11,7 @@ import Foundation
 class Tweet {
     
     // MARK: Properties
-    var id: String? // For favoriting, retweeting & replying
+    var id: Int // For favoriting, retweeting & replying
     var text: String // Text content of tweet
     var favoriteCount: Int // Update favorite count label
     var favorited: Bool? // Configure favorite button
@@ -21,8 +21,10 @@ class Tweet {
     var createdAtString: String // Display date
     
     // MARK: - Create initializer with dictionary
+    //var dictionary: NSDictionary?
+    
     init(dictionary: [String: Any]) {
-        id = dictionary["id"] as? String
+        id = dictionary["id"] as! Int
         print("id is \(id) from \(dictionary["id"])")
         
         text = dictionary["text"] as! String

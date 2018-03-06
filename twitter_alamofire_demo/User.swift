@@ -25,7 +25,6 @@ class User {
     
    
     
-    //static var current: User?
     private static var _current: User?
     
     static var current: User? {
