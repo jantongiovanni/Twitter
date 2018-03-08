@@ -16,6 +16,8 @@ PODS:
   - AFNetworking/UIKit (3.1.0):
     - AFNetworking/NSURLSession
   - Alamofire (4.4.0)
+  - AlamofireImage (3.2.0):
+    - Alamofire (~> 4.1)
   - KeychainAccess (3.0.1)
   - OAuthSwift (1.1.1)
   - OAuthSwiftAlamofire (0.1.0):
@@ -26,6 +28,7 @@ DEPENDENCIES:
   - ActiveLabel (~> 0.7.0)
   - AFNetworking
   - Alamofire
+  - AlamofireImage
   - KeychainAccess
   - OAuthSwift
   - OAuthSwiftAlamofire
@@ -34,10 +37,11 @@ SPEC CHECKSUMS:
   ActiveLabel: 68625f22775f51c31bb691ca8de20f1e5a3bc825
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
   Alamofire: dc44b1600b800eb63da6a19039a0083d62a6a62d
+  AlamofireImage: 157ed682cc81d3b9db4fb90c1f12180ac552d93b
   KeychainAccess: 017ea25e313a49eda10bb19b0bb0760fb1edfe1a
   OAuthSwift: 6e3a103b3e5639411769cc7e199ec7e14bd1547f
   OAuthSwiftAlamofire: 20bb998ac506f82c3bab0625fbc98a9c6fca783f
 
-PODFILE CHECKSUM: fa52760a171caf62b8d1a6c3ec982221c8ebe272
+PODFILE CHECKSUM: 7558bc46b6ae510a37e21bad148650d054dba418
 
 COCOAPODS: 1.4.0
