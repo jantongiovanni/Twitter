@@ -100,6 +100,7 @@ The following **stretch** features are implemented:
 - [ ] Pulling down the profile page should blur and resize the header image. (2pts)
 
 The following **additional** features are implemented:
+When user taps to compose a tweet, text field initializes to empty instead of placeholder "What's Happening"
 
 - [ ] List anything else that you can get done to improve the app functionality!
 

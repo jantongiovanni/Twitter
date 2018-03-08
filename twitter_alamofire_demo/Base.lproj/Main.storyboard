@@ -229,22 +229,8 @@
                                     <constraint firstAttribute="width" constant="48" id="iU3-eE-QQl"/>
                                 </constraints>
                             </imageView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" allowsEditingTextAttributes="YES" placeholder="What's Happening?" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="a2t-HJ-6qc">
-                                <frame key="frameInset" minX="72" minY="72" width="287" height="48"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="03N-0Y-Min">
-                                <frame key="frameInset" minX="22" minY="148" width="337" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JzK-Yy-JaO">
-                                <frame key="frameInset" minX="16" minY="177" width="240" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JzK-Yy-JaO">
+                                <frame key="frameInset" minX="72" minY="72" width="287" height="151"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <attributedString key="attributedText">
                                     <fragment content="What's Happening?">
@@ -256,15 +242,23 @@
                                 </attributedString>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kRg-ga-dDE">
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="button:" destination="iGK-2M-Jpo" eventType="touchUpInside" id="SmK-Vg-jb6"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="JzK-Yy-JaO" firstAttribute="leading" secondItem="J2J-gx-4iy" secondAttribute="trailing" constant="8" symbolic="YES" id="1cT-DR-EQk"/>
                             <constraint firstItem="J2J-gx-4iy" firstAttribute="top" secondItem="0bP-1F-7b6" secondAttribute="bottom" constant="8" id="43w-m0-cgI"/>
-                            <constraint firstItem="J2J-gx-4iy" firstAttribute="leading" secondItem="5Ri-cX-ARa" secondAttribute="leading" constant="8" id="JuX-gb-Emk"/>
-                            <constraint firstItem="a2t-HJ-6qc" firstAttribute="top" secondItem="0bP-1F-7b6" secondAttribute="bottom" constant="8" id="ZGc-GI-z4O"/>
-                            <constraint firstItem="a2t-HJ-6qc" firstAttribute="leading" secondItem="J2J-gx-4iy" secondAttribute="trailing" constant="8" id="as5-cc-hjr"/>
-                            <constraint firstAttribute="trailing" secondItem="a2t-HJ-6qc" secondAttribute="trailing" constant="8" id="jVT-fj-cAk"/>
-                            <constraint firstItem="a2t-HJ-6qc" firstAttribute="leading" secondItem="J2J-gx-4iy" secondAttribute="trailing" constant="8" id="kZ8-3W-AUI"/>
+                            <constraint firstItem="5wQ-1l-UVA" firstAttribute="top" secondItem="JzK-Yy-JaO" secondAttribute="bottom" constant="444" id="EMs-u1-Gcq"/>
+                            <constraint firstItem="J2J-gx-4iy" firstAttribute="leading" secondItem="5Ri-cX-ARa" secondAttribute="leading" constant="8" id="JuX-gb-Emk" userLabel="Compose User Image.leading = leading + 6"/>
+                            <constraint firstItem="JzK-Yy-JaO" firstAttribute="trailing" secondItem="5Ri-cX-ARa" secondAttribute="trailingMargin" id="Nwd-6u-9Wh"/>
+                            <constraint firstItem="kRg-ga-dDE" firstAttribute="top" secondItem="JzK-Yy-JaO" secondAttribute="bottom" constant="8" id="jDj-O5-UDI"/>
+                            <constraint firstItem="kRg-ga-dDE" firstAttribute="trailing" secondItem="5Ri-cX-ARa" secondAttribute="trailingMargin" id="kJI-Xy-I3z"/>
+                            <constraint firstItem="JzK-Yy-JaO" firstAttribute="top" secondItem="J2J-gx-4iy" secondAttribute="top" id="nur-ya-EFg"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Compose" id="rDC-CL-M8f">
@@ -279,15 +273,17 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Tweet"/>
                             </button>
+                            <connections>
+                                <action selector="didTapTweet:" destination="iGK-2M-Jpo" id="HFy-1y-mRd"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="ComposeCancelButton" destination="6Cf-gw-9cN" id="ONb-aa-fmR"/>
-                        <outlet property="ComposeNameLabel" destination="03N-0Y-Min" id="s8v-mw-ppt"/>
-                        <outlet property="ComposeText" destination="a2t-HJ-6qc" id="ZUf-Nv-424"/>
                         <outlet property="ComposeTextField" destination="JzK-Yy-JaO" id="SCM-h4-UUb"/>
                         <outlet property="ComposeTweetButton" destination="7yb-VH-cJS" id="sOM-Op-Pt5"/>
                         <outlet property="ComposeUserImage" destination="J2J-gx-4iy" id="Zsw-Ku-sfZ"/>
+                        <outlet property="button" destination="kRg-ga-dDE" id="A6h-3l-iw5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="I0a-U3-KWl" userLabel="First Responder" sceneMemberID="firstResponder"/>
