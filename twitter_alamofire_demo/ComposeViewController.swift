@@ -23,6 +23,7 @@ class ComposeViewController: UIViewController, UITextViewDelegate {
     @IBOutlet weak var ComposeUserImage: UIImageView!
     @IBOutlet weak var ComposeTextField: UITextView!
     @IBOutlet weak var button: UIButton!
+    @IBOutlet weak var ComposeCharCount: UILabel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -66,6 +67,22 @@ class ComposeViewController: UIViewController, UITextViewDelegate {
     }
     func textViewDidBeginEditing(_ textView: UITextView) {
         ComposeTextField.text = ""
+    }
+    
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        // TODO: Check the proposed new text character count
+        // Allow or disallow the new text
+        // Set the max character limit
+        let characterLimit = 140
+        
+        // Construct what the new text would be if we allowed the user's latest edit
+        let newText = NSString(string: textView.text!).replacingCharacters(in: range, with: text)
+        
+        // TODO: Update Character Count Label
+        ComposeCharCount.text = String(140 - newText.characters.count)
+        
+        // The new text should be allowed? True/False
+        return newText.characters.count < characterLimit
     }
     
     override func didReceiveMemoryWarning() {
