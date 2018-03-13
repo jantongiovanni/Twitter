@@ -17,7 +17,6 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var profileFollowers: UILabel!
     @IBOutlet weak var profileStatuses: UILabel!
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 

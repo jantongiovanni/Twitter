@@ -51,7 +51,7 @@
             </objects>
             <point key="canvasLocation" x="32.799999999999997" y="37.331334332833585"/>
         </scene>
-        <!--Detail-->
+        <!--Tweet-->
         <scene sceneID="h1o-OU-0lF">
             <objects>
                 <viewController id="Luw-4x-T6b" customClass="DetailViewController" customModule="twitter_alamofire_demo" customModuleProvider="target" sceneMemberID="viewController">
@@ -87,7 +87,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="I love tweeting!" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Tv-87-BZE" customClass="ActiveLabel" customModule="ActiveLabel">
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -104,6 +104,7 @@
                                 <state key="normal" image="reply-icon"/>
                                 <connections>
                                     <action selector="onReply:" destination="Luw-4x-T6b" eventType="touchUpInside" id="QmN-Rc-crH"/>
+                                    <segue destination="RqG-y1-zrX" kind="show" id="Fa7-wg-YCU"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HEs-Ll-D6Y">
@@ -137,13 +138,13 @@
                             <constraint firstItem="1BT-IR-aVF" firstAttribute="leading" secondItem="DIb-Ly-4Nb" secondAttribute="leadingMargin" constant="13" id="cu6-bv-3Kd"/>
                             <constraint firstItem="4Tv-87-BZE" firstAttribute="top" secondItem="wMf-L4-fXc" secondAttribute="bottom" constant="8" symbolic="YES" id="gXw-d6-Ok7"/>
                             <constraint firstItem="UcM-dd-8aa" firstAttribute="top" secondItem="EUe-eZ-WOA" secondAttribute="bottom" constant="8" symbolic="YES" id="kew-tn-gK8"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="4Tv-87-BZE" secondAttribute="trailing" constant="-12" id="lrs-qc-OUd"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="4Tv-87-BZE" secondAttribute="trailing" id="lrs-qc-OUd"/>
                             <constraint firstItem="UcM-dd-8aa" firstAttribute="leading" secondItem="EUe-eZ-WOA" secondAttribute="leading" id="uYU-PQ-KBQ"/>
                             <constraint firstItem="EUe-eZ-WOA" firstAttribute="top" secondItem="4Tv-87-BZE" secondAttribute="bottom" constant="8" symbolic="YES" id="uxC-pn-JTU"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Detail" id="lyb-Ho-iOj">
-                        <barButtonItem key="leftBarButtonItem" image="back-icon" id="9fu-JR-Jun"/>
+                    <navigationItem key="navigationItem" title="Tweet" id="MIk-F4-a9z">
+                        <barButtonItem key="backBarButtonItem" title=" " id="CIS-xA-tPw"/>
                     </navigationItem>
                     <connections>
                         <outlet property="detailCreatedAt" destination="EUe-eZ-WOA" id="YKE-pd-wtu"/>
@@ -158,7 +159,61 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FIE-c5-Mur" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1656.5" y="-636.5"/>
+            <point key="canvasLocation" x="1655.2" y="-637.33133433283365"/>
+        </scene>
+        <!--Reply View Controller-->
+        <scene sceneID="eg3-2G-cBb">
+            <objects>
+                <viewController id="RqG-y1-zrX" customClass="ReplyViewController" customModule="twitter_alamofire_demo" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="WDs-4p-w3M"/>
+                        <viewControllerLayoutGuide type="bottom" id="35S-VP-YHb"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="jVf-qp-Mo4">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="df5-vf-dHh">
+                                <frame key="frameInset" minX="16" minY="44" width="343" height="151"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="What's Happening?">
+                                        <attributes>
+                                            <font key="NSFont" metaFont="menu" size="14"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PLi-9f-kmT">
+                                <frame key="frameInset" minX="313" minY="203" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Tweet"/>
+                                <connections>
+                                    <action selector="onReply:" destination="RqG-y1-zrX" eventType="touchUpInside" id="Ur1-jA-6wX"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LD5-VU-Weq">
+                                <frame key="frameInset" minX="16" minY="203" width="42" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="replyButton" destination="PLi-9f-kmT" id="emv-1r-7Ao"/>
+                        <outlet property="replyCharCount" destination="LD5-VU-Weq" id="uKe-kM-Ssy"/>
+                        <outlet property="replyTextField" destination="df5-vf-dHh" id="U5f-21-7vr"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6Zd-Cp-YYQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2552.8000000000002" y="-632.83358320839591"/>
         </scene>
         <!--Home-->
         <scene sceneID="5vf-Kh-7ye">
@@ -437,7 +492,7 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kRg-ga-dDE">
-                                <state key="normal" title="Button"/>
+                                <state key="normal" title="Tweet"/>
                                 <connections>
                                     <action selector="button:" destination="iGK-2M-Jpo" eventType="touchUpInside" id="SmK-Vg-jb6"/>
                                 </connections>
@@ -468,22 +523,11 @@
                                 <segue destination="RFK-Vv-pWW" kind="presentation" id="Tnd-iv-EDb"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="7yb-VH-cJS">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="sGV-M6-kuZ">
-                                <rect key="frame" x="276" y="7" width="83" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Tweet"/>
-                            </button>
-                            <connections>
-                                <action selector="didTapTweet:" destination="iGK-2M-Jpo" id="HFy-1y-mRd"/>
-                            </connections>
-                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="ComposeCancelButton" destination="6Cf-gw-9cN" id="ONb-aa-fmR"/>
                         <outlet property="ComposeCharCount" destination="jaf-J6-Lv0" id="yvE-JD-7Ol"/>
                         <outlet property="ComposeTextField" destination="JzK-Yy-JaO" id="SCM-h4-UUb"/>
-                        <outlet property="ComposeTweetButton" destination="7yb-VH-cJS" id="sOM-Op-Pt5"/>
                         <outlet property="ComposeUserImage" destination="J2J-gx-4iy" id="Zsw-Ku-sfZ"/>
                         <outlet property="button" destination="kRg-ga-dDE" id="A6h-3l-iw5"/>
                     </connections>

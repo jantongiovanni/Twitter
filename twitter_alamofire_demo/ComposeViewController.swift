@@ -31,14 +31,6 @@ class ComposeViewController: UIViewController, UITextViewDelegate {
         
         let profileImage = URL(string: (User.current?.profileImage)!)
         ComposeUserImage.af_setImage(withURL: profileImage!)
-        
-        print(User.current?.profileImageUrl)
-        print(User.current?.profileImage)
-        print(User.current?.followersCount)
-        
-        //ComposeUserImage.af_setImage(withURL: (User.current?.profileImage)!)
-
-    
     }
     
    
