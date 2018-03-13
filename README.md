@@ -75,16 +75,16 @@ limitations under the License.
 
 # Project 6 - *Twitter2*
 
-Time spent: **X** hours spent in total
+Time spent: **12** hours spent in total
 
 ## User Stories
 
 The following **required** stories are completed:
 
-- [ ] User can tap on a tweet to view it in a detail view, with controls to retweet, favorite, and reply (2pts)
-- [ ] User can compose a new tweet by tapping on a compose button. (3pts)
-- [ ] When composing a tweet, user sees a countdown for the number of characters remaining for the tweet (out of 140) (2pt)
-- [ ] User can view their profile in a *profile tab* (3pts)
+- [x] User can tap on a tweet to view it in a detail view, with controls to retweet, favorite, and reply (2pts)
+- [x] User can compose a new tweet by tapping on a compose button. (3pts)
+- [x] When composing a tweet, user sees a countdown for the number of characters remaining for the tweet (out of 140) (2pt)
+- [x] User can view their profile in a *profile tab* (3pts)
 - Contains the user header view: picture and tagline
 - Contains a section with the users basic stats: # tweets, # following, # followers
 
@@ -106,20 +106,21 @@ When user taps to compose a tweet, text field initializes to empty instead of pl
 
 Please list two areas of the assignment you'd like to **discuss further with your peers** during the next class (examples include better ways to implement something, how to extend your app in certain ways, etc):
 
-1.
-2.
+1. Passing data throughout the application efficiently
+2. Optimization
 
 ## Video Walkthrough
 
 Here's a walkthrough of implemented user stories:
 
-<img src='http://i.imgur.com/link/to/your/gif/file.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src= 'https://i.imgur.com/n78fZOh.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
 ## Notes
 
 Describe any challenges encountered while building the app.
+Difficulty passing user data from the tableview to the detail view proved to be very frustrating, turned out to be a small error made initially in the stroyboard rather than a problem in the code itself
 
 ## License
 
