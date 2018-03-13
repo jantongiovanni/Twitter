@@ -11,6 +11,8 @@ import UIKit
 class TimelineViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     var tweets: [Tweet] = []
+    var valueToPass: String!
+
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -49,9 +51,7 @@ class TimelineViewController: UIViewController, UITableViewDelegate, UITableView
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TweetCell", for: indexPath) as! TweetCell
-        
         cell.tweet = tweets[indexPath.row]
-        
         return cell
     }
     
@@ -92,14 +92,25 @@ class TimelineViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     
-    /*
+    
      // MARK: - Navigation
      
      // In a storyboard-based application, you will often want to do a little preparation before navigation
      override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destinationViewController.
-     // Pass the selected object to the new view controller.
+        print("test1")
+        if let detailViewController = segue.destination as? DetailViewController {
+            let cell = sender as! UITableViewCell//TweetCell
+            print("test2")
+            if let indexPath = tableView.indexPath(for: cell){
+                let tweet = tweets[indexPath.row]
+                detailViewController.tweet = tweet
+                print(detailViewController.tweet?.text)
+                print("test3")
+            }
+        
+        }
+        
      }
-     */
+    
     
 }

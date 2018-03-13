@@ -19,25 +19,51 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var detailText: ActiveLabel!
     @IBOutlet weak var detailCreatedAt: UILabel!
     
+    
+    @IBOutlet weak var detailRetweetedButton: UIButton!
+    @IBOutlet weak var detailFavoritedButton: UIButton!
+    @IBOutlet weak var detailRetweetLabel: UILabel!
+    @IBOutlet weak var detailFavoritedLabel: UILabel!
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        if let tweet = tweet{
-            detailName.text = tweet.user.name
+        if let tweet = tweet {
+        let profileImage = NSURL(string: tweet.user.profileImage!)
+        detailImage.setImageWith(profileImage! as URL)
+        detailName.text = tweet.user.name
+        detailHandle.text = "@" + tweet.user.screenName
+        detailText.text = tweet.text
+        detailCreatedAt.text = tweet.createdAtString
+            
+        detailText.enabledTypes = [.mention, .hashtag, .url]
+        detailText.handleURLTap { (url) in UIApplication.shared.openURL(url)
         
         }
+        }
+        
+        
         
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
+//    func refreshData(){
+//        if(tweet?.retweeted)!{
+//            detailRetweetedButton.setImage(#imageLiteral(resourceName: "retweet-icon-green"), for: .normal)
+//        }
+//        if(tweet?.retweeted==false){
+//            detailRetweetedButton.setImage(#imageLiteral(resourceName: "retweet-icon"), for: .normal)
+//        }
+//
+//    
+//   }
+
+//    override func didReceiveMemoryWarning() {
+//        super.didReceiveMemoryWarning()
+//        // Dispose of any resources that can be recreated.
+//    }
     
-    @IBAction func back(_ sender: AnyObject) {
-        self.dismiss(animated: true, completion: nil)
-    }
+   
 
     /*
     // MARK: - Navigation
